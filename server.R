@@ -6,12 +6,13 @@ shinyServer(function(input, output) {
      dist(as.matrix(mtcars),  method = input$dist, p=100) 
      })
    
-  # Number of Hierarchical clusters from user
+   # Number of Hierarchical clusters from user
 
   k <- reactive({
    input$clusters
   })
 
+   # send plots to ui.R
 
   output$plot1 <- renderPlot({
     hc <-  hclust(d(), method="complete") 
