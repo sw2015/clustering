@@ -2,13 +2,13 @@ shinyUI(pageWithSidebar(
   headerPanel('Hierarchical Clustering on mtcars'),
   sidebarPanel(
 
+ # List distance metrics that users can choose and also the number of clusters users are interested in
+
     radioButtons('dist', 'Distance',
                  list('euclidean' = 'euclidean',
 		      'manhattan' = 'manhattan',
                       'canberra' = 'canberra',
                       'maximum' = 'maximum',
-#                     'manhattan' = 'manhattan',
-#		      'canberra' = 'canberra',
 		      'binary' = 'binary',
 		      'minkowski' = 'minkowski')),
     br(),
@@ -25,8 +25,12 @@ shinyUI(pageWithSidebar(
      p("euclidean is set to be the default for distance and 7 is set to be the default for the number of clusters."),
      p("For instance, if you need to see how the cars are clustered in the case of manhattan if the number of cluters is set to be 15 just click manhattan under Distance on the right side and choose 15 for the number of clusters. Then you will get 4 plots: one for method complete, one for ward, one for average, one for single and one for centroid."),  
      p("One thing worth mentioning is that the plots show that single method does not generate a tree that is as balanced as others."),
-     p("Note that because the computation is carried on the shinyapps.io server the results of which return over the Internet, it may take some time before plots are shown.")
+     p("Note that because the computation is carried on the shinyapps.io server the results of which return over the Internet, it may take some time before plots are shown."),
+     p("ui.R and server.R are located at"),
+     a("https://github.com/sw2015/clustering", href="https://github.com/sw2015/clustering")
   ),
+
+# plot the cluster dendrograms
 
   mainPanel(
     br(),
